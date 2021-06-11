@@ -1,0 +1,26 @@
+create database boody;
+
+create table member(
+ member_id int primary key auto_increment,
+ user_id varchar(20),
+ user_pass varchar(70),
+ user_name varchar(30),
+ user_msg varchar(40),
+ user_email varchar(40),
+ user_filename varchar(40),
+ user_regdate timestamp default now()
+) default character set utf8;
+
+
+
+create table friends(
+ pk int primary key auto_increment,
+ member_id int,
+ friend_id int,
+ regdate timestamp default now(),
+ constraint fk_userfriend foreign key(member_id) references member(member_id) 
+) default character set utf8;
+
+
+
+
